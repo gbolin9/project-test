@@ -25,7 +25,7 @@ function Header() {
     </div>
     <Link href="/">Home</Link>
     <div>
-      <Link href="/app/classadd">Add Course</Link>
+      <Link href="/classadd">Add Course</Link>
     </div>
   </header>
   )
