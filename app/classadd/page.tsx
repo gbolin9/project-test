@@ -24,7 +24,7 @@ export default function Page() {
     }));
   };
 
-  const handleSubmit = async (vent: React.SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     
     try {
