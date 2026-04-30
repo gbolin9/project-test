@@ -1,5 +1,12 @@
 import Link from 'next/link';
-async function getCourse() {
+
+interface Course {
+  _id: string;
+  teacherID: string;
+  courseName: string;
+  credits: number;
+}
+async function getCourse(): Promise<Course[]> {
 
   const res = await fetch("https://backend-sdev-255-project.onrender.com/api/course")
   return res.json();
