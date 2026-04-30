@@ -15,7 +15,7 @@ export default function Page() {
 
   const [course, setCourse] = useState(initialState);
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     const isNumeric = name === "credits" || name === "teacherID";
     setCourse((prev) => ({
@@ -24,7 +24,7 @@ export default function Page() {
     }));
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (vent: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     
     try {
