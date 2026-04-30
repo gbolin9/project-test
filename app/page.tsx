@@ -30,7 +30,7 @@ export default async function Home() {
           </thead>
           <tbody>
             {data.map((course) =>(
-              <tr key={course.id}>
+              <tr key={course._id}>
                 <td>
                  <Link href={`/courseDetails/${course._id}`}>
   View Details
