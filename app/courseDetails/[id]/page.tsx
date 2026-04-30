@@ -21,7 +21,7 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
         fetchCourseData();
     }, [params]);
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: React.FormEvent) => {
       event.preventDefault();
       
       try {
