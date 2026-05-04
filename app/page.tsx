@@ -2,7 +2,8 @@ import Link from 'next/link';
 
 interface Course {
   _id: string;
-  teacherID: string;
+  courseID: string
+  teacherID: number;
   courseName: string;
   credits: number;
 }
@@ -33,7 +34,7 @@ export default async function Home() {
               <tr key={course._id}>
                 <td>
                  <Link href={`/courseDetails/${course._id}`}>
-  View Details
+ {course.courseID}
 </Link>
                 </td>
                 <td>{course.teacherID}</td>

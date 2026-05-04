@@ -52,23 +52,43 @@ export default function Page() {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="courseID">Course ID</label>
-          <input id="courseID" type="text" name="courseID" value={course.courseID} onChange={handleChange} required />
+          <input id="courseID" 
+          type="text" 
+          name="courseID" 
+          value={course.courseID} 
+          onChange={handleChange} 
+          required />
         </div>
         <div>
           <label htmlFor="teacherID">Teacher ID</label>
-          <input id="teacherID" type="Number" name="teacherID" value={course.teacherID} onChange={handleChange} />
+          <input id="teacherID" 
+          type="Number" 
+          name="teacherID" 
+          value={course.teacherID} 
+          onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="courseName">Course Name</label>
-          <input id="courseName" type="text" name="courseName" value={course.courseName} onChange={handleChange} />
+          <input id="courseName" 
+          type="text"
+           name="courseName" 
+           value={course.courseName} 
+           onChange={handleChange} 
+           required/>
         </div>
         <div>
           <label htmlFor="credits">Credits</label>
-          <input id="credits" type="number" name="credits" value={course.credits} onChange={handleChange} />
+          <input id="credits" 
+          type="number" name="credits"
+           value={course.credits} 
+           onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="description">Description</label>
-          <textarea id="description" name="description" value={course.description} onChange={handleChange} />
+          <textarea id="description" 
+          name="description" 
+          value={course.description} 
+          onChange={handleChange} />
         </div>
         <button type="submit">Submit</button>
       </form>

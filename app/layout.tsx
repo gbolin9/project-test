@@ -27,6 +27,13 @@ function Header() {
     <div>
       <Link href="/classadd">Add Course</Link>
     </div>
+     <div className="ml-auto">
+        <Link  href="/login" 
+          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+        >
+          Login
+        </Link>
+      </div>
   </header>
   )
 }
