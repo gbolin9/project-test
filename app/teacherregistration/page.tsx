@@ -54,7 +54,7 @@ export default function TeacherRegistrationPage() {
           />
         </div>
         <div>
-          <label htmlFor="lasttName">Last Name</label>
+          <label htmlFor="lastName">Last Name</label>
           <input
             id="lastName"
             type="text"

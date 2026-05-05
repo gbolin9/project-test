@@ -9,6 +9,7 @@ export default function Page() {
     courseID: '',
     teacherID: 0,
     courseName: '',
+    subjectArea: '',
     credits: 0,
     description: '',
   };
@@ -73,6 +74,14 @@ export default function Page() {
           type="text"
            name="courseName" 
            value={course.courseName} 
+           onChange={handleChange} 
+           required/>
+        </div><div>
+          <label htmlFor="subjectArea">Subject Area</label>
+          <input id="subjectArea" 
+          type="text"
+           name="subjectArea" 
+           value={course.subjectArea} 
            onChange={handleChange} 
            required/>
         </div>
