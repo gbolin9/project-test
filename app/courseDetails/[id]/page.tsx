@@ -90,8 +90,8 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
     // Send the PUT request with the updated array
     const response = await fetch(`https://backend-sdev-255-project.onrender.com/api/Students/${studentID}`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...studentData, courses: updatedCourses }),
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ courses: updatedCourses }),
     });
 
     if (response.ok) {
