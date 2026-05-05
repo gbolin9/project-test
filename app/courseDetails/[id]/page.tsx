@@ -114,8 +114,8 @@ const handleDropCourse = async () => {
     const getResponse = await fetch(`https://backend-sdev-255-project.onrender.com/api/Students/${studentID}`);
     const studentData = await getResponse.json();
 
-    //Filerts to only delete the to be deleted course
-    const currentCourses = studentData.course || [];
+    //Filterts to only delete the to be deleted course
+    const currentCourses = studentData.courses || [];
     const updatedCourses = currentCourses.filter((id: string | number) => id !== course.courseID)
 
     //update with the new array without the deleted course
