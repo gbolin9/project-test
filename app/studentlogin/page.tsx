@@ -24,6 +24,7 @@ export default function LoginPage() {
         // Save the token for the x-auth header and the role for UI logic
         localStorage.setItem("token", data.token);
         localStorage.setItem("role", "student"); 
+        if (data.userID) localStorage.setItem('studentID', data.userID.toString());
         window.dispatchEvent(new Event("auth-change"));
         router.push("/");
       } else {

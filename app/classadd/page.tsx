@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 export default function Page() {
@@ -10,11 +10,21 @@ export default function Page() {
     teacherID: 0,
     courseName: '',
     subjectArea: '',
-    credits: 0,
+    credits: 1,
     description: '',
   };
 
   const [course, setCourse] = useState(initialState);
+
+  useEffect(() => {
+    const teacherID = localStorage.getItem('teacherID'); 
+    if (teacherID) {
+      setCourse((prev) => ({
+        ...prev,
+        teacherID: Number(teacherID),
+      }));
+    }
+  }, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
@@ -61,14 +71,6 @@ export default function Page() {
           required />
         </div>
         <div>
-          <label htmlFor="teacherID">Teacher ID</label>
-          <input id="teacherID" 
-          type="Number" 
-          name="teacherID" 
-          value={course.teacherID} 
-          onChange={handleChange} />
-        </div>
-        <div>
           <label htmlFor="courseName">Course Name</label>
           <input id="courseName" 
           type="text"
@@ -88,9 +90,23 @@ export default function Page() {
         <div>
           <label htmlFor="credits">Credits</label>
           <input id="credits" 
-          type="number" name="credits"
-           value={course.credits} 
-           onChange={handleChange} />
+          type="number" 
+          name="credits"
+          min="1"
+          max="5"
+          value={course.credits} 
+          onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="teacherID">Teacher ID</label>
+          <input
+            id="teacherID"
+            type="number"
+            name="teacherID"
+            value={course.teacherID}
+            onChange={handleChange}
+            readOnly 
+          />
         </div>
         <div>
           <label htmlFor="description">Description</label>

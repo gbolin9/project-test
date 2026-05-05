@@ -48,6 +48,10 @@ export function Header() {
         {role === 'teacher' && <Link href="/classadd">Create Course</Link>}
     </div>
 
+    <div>
+      {role === 'student' && <Link href="/studentcourse">Your Courses</Link>}
+    </div>
+
      <div className="ml-auto">
         {/* Toggle Login and Logout buttons */}
         {role ? (

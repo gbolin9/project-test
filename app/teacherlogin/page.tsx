@@ -24,6 +24,12 @@ export default function LoginPage() {
         // Save the token and the role returned from your API
         localStorage.setItem("token", data.token);
         localStorage.setItem("role","teacher"); 
+        
+
+        // Log to check values in the browser console
+        if (data.firstName) localStorage.setItem('firstName', data.firstName);
+        if (data.userID) localStorage.setItem('teacherID', data.userID.toString());
+    
         window.dispatchEvent(new Event("auth-change"));
         router.push("/");
       } else {
