@@ -38,7 +38,7 @@ export default function LoginPage() {
   return (
     <main className="p-8">
       <h1>Student Login</h1>
-      <form onSubmit={handleLogin} className="flex flex-col gap-4 max-w-xs">
+      <form onSubmit={handleLogin}>
         <div>
           <label htmlFor="loginName">User Name: </label>
           <input 
@@ -63,13 +63,13 @@ export default function LoginPage() {
           />
         </div>
 
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+        <button type="submit">
           Login
         </button>
       </form>
       
       <p className="mt-4">
-        If you are not registered click <Link href="/studentregistration" className="text-blue-600 underline">Here</Link>
+        If you are not registered click <Link href="/studentregistration">Here</Link>
       </p>
     </main>
   );

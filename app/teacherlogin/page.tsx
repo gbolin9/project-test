@@ -42,9 +42,9 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="p-8">
-      <h1 className="text-2xl font-bold mb-4">Teacher Login</h1>
-      <form onSubmit={handleLogin} className="flex flex-col gap-4 max-w-xs">
+    <main >
+      <h1 >Teacher Login</h1>
+      <form onSubmit={handleLogin}>
         <div>
           <label htmlFor="loginName">User Name: </label>
           <input
@@ -52,7 +52,6 @@ export default function LoginPage() {
             type="text"
             value={loginName}
             onChange={(e) => setLoginName(e.target.value)}
-            className="border p-1 w-full"
             required
           />
         </div>
@@ -63,11 +62,10 @@ export default function LoginPage() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="border p-1 w-full"
             required
           />
         </div>
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+        <button type="submit">
           Login
         </button>
       </form>
@@ -75,7 +73,7 @@ export default function LoginPage() {
       <div className="mt-4">
         <p>
           If you are not registered click{" "}
-          <Link href="/teacherregistration" className="text-blue-500 underline">
+          <Link href="/teacherregistration">
             Here
           </Link>
         </p>
