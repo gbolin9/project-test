@@ -8,6 +8,14 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
     const [cleanID, setCleanID] = useState<string>("");
     const [role, setRole] = useState<string | null>(null);
 
+    interface Course {
+    courseID: string;
+    courseName: string;
+    teacherID?: number;
+    credits?: number;
+    description?: string;
+}
+
     useEffect(() => {
         async function fetchCourseData() {
             const storedRole = localStorage.getItem('role'); 
@@ -64,47 +72,26 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
         }
     }
 
-    const handleAddCourse = async () => {
-  const studentID = localStorage.getItem('studentID'); 
-  
-  if (!studentID) {
-    alert("Please log in as a student to add this course.");
-    return;
-  }
+   const handleAddCourse = () => {
+   
+    const rawCart = localStorage.getItem('courseCart');
+    const existingCart: Course[] = rawCart ? JSON.parse(rawCart) : [];
 
-  try {
-    // Fetch the student's current data first to get their existing array
-    const getResponse = await fetch(`https://backend-sdev-255-project.onrender.com/api/Students/${studentID}`);
-    const studentData = await getResponse.json();
 
-    //Checks for duplicate courses
-    const currentCourses = studentData.courses || [];
-    if (currentCourses.includes(course.courseID)) {
-      alert("You are already enrolled in this course.");
-      return;
+    const isAlreadyInCart = existingCart.some((item: Course) => item.courseID === course.courseID);
+
+    if (isAlreadyInCart) {
+        alert("This course is already in your cart!");
+        return;
     }
 
-    // Append the new course to the existing courses array
-    const updatedCourses = [...currentCourses, course.courseID];
+    // 3. Add current course to the array
+    const updatedCart: Course[] = [...existingCart, course];
 
-    // Send the PUT request with the updated array
-    const response = await fetch(`https://backend-sdev-255-project.onrender.com/api/Students/${studentID}`, {
-      method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ courses: updatedCourses }),
-    });
-
-    if (response.ok) {
-      alert(course.courseName + " successfully added to your courses.");
-    } else {
-      alert('Failed to enroll. Please try again.');
-    }
-  } catch (error) {
-    console.error('Enrollment Error:', error);
-    alert('An error occurred while adding the course.');
-  }
+    // 4. Save and Alert
+    localStorage.setItem('courseCart', JSON.stringify(updatedCart));
+    alert(`${course.courseName} added to cart!`);
 };
-
 const handleDropCourse = async () => {
     const studentID = localStorage.getItem("studentID")
     if (!confirm("Do you want to drop this course?")) return;
@@ -114,7 +101,7 @@ const handleDropCourse = async () => {
     const getResponse = await fetch(`https://backend-sdev-255-project.onrender.com/api/Students/${studentID}`);
     const studentData = await getResponse.json();
 
-    //Filterts to only delete the to be deleted course
+    //Filters to only delete the to be deleted course
     const currentCourses = studentData.courses || [];
     const updatedCourses = currentCourses.filter((id: string | number) => id !== course.courseID)
 
