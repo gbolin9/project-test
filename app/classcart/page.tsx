@@ -8,10 +8,10 @@ export default function CartPage() {
     const [studentID, setStudentID] = useState<string | null>(null);
 
     useEffect(() => {
-        // 1. Get Student ID
+        // Get Student ID
         setStudentID(localStorage.getItem('studentID'));
 
-        // 2. Load Cart from localStorage
+        // Load Cart from localStorage
         const savedCart = localStorage.getItem('courseCart');
         if (savedCart) {
             setCart(JSON.parse(savedCart));

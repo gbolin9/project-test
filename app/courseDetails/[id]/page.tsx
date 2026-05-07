@@ -85,10 +85,10 @@ export default function CourseDetailPage({ params }: { params: Promise<{ id: str
         return;
     }
 
-    // 3. Add current course to the array
+    //Add current course to the array
     const updatedCart: Course[] = [...existingCart, course];
 
-    // 4. Save and Alert
+    //Save and Alert
     localStorage.setItem('courseCart', JSON.stringify(updatedCart));
     alert(`${course.courseName} added to cart!`);
 };
