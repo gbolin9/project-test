@@ -42,12 +42,15 @@ export default function LoginPage() {
   };
 
   return (
-    <main >
-      <h1 >Teacher Login</h1>
-      <form onSubmit={handleLogin}>
-        <div>
+    <main className= "min-h-screen flex flex-col items-center justify-start py-10">
+      <h1 className="text-3xl py-2">Teacher Login</h1>
+      <form onSubmit={handleLogin}
+            className= "max-w-md mx-auto p-6 bg-gray-500 shadow-md py-4"
+            >
+        <div  className="flex flex-col space-y-2">
           <label htmlFor="loginName">User Name: </label>
           <input
+          className="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500"
             id="loginName"
             type="text"
             value={loginName}
@@ -55,9 +58,10 @@ export default function LoginPage() {
             required
           />
         </div>
-        <div>
+        <div className="flex flex-col space-y-2">
           <label htmlFor="password">Enter Password: </label>
           <input
+          className="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500"
             id="password"
             type="password"
             value={password}
@@ -65,18 +69,21 @@ export default function LoginPage() {
             required
           />
         </div>
-        <button type="submit">
+        <div className="flex justify-center py-4">
+        <button
+        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-green-700 transition-colors"
+        type="submit">
           Login
         </button>
+        </div>
       </form>
       
       <div className="mt-4">
-        <p>
-          If you are not registered click{" "}
-          <Link href="/teacherregistration">
-            Here
-          </Link>
-        </p>
+        <p className="py-4">If you are not registered click {""}
+                    <Link 
+                    className="mx-auto px-2 py-2 bg-yellow-600 text-white rounded-md hover:bg-blue-700 transition-colors italic" 
+                    href="/teacherregistration"> Here</Link>
+                    </p>
       </div>
     </main>
   );
