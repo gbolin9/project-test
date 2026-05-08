@@ -6,6 +6,7 @@ interface Course {
   teacherID: number;
   courseName: string;
   credits: number;
+  subjectArea: string;
 }
 async function getCourse(): Promise<Course[]> {
 
@@ -43,7 +44,7 @@ export default async function Home() {
                 <td>{course.teacherID}</td>
                 <td>{course.courseName}</td>
                 <td>{course.credits}</td>
-                <td>{course.courseName}</td> 
+                <td>{course.subjectArea}</td>
 
               </tr>
             ))}
