@@ -40,20 +40,41 @@ export function Header() {
     window.location.reload();
   };
   return (
-  <header>
-    <div>
+  <header className="flex items-center p-10 bg-slate-500">
+    <h1 className="text-3xl font-bold text-white">Course Management System</h1>
+      <div className='mx-auto'>
+      <Link 
+      className="px-4 py-2 bg-yellow-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+      href="/">
+        Home
+        </Link>
     </div>
-    <Link href="/">Home</Link>
-    <div>
-        {role === 'teacher' && <Link href="/classadd">Create Course</Link>}
+    
+    <div className ='mx-auto'>
+     
+        {role === 'teacher' && 
+        <Link
+         className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+         href="/classadd">
+          Create Course</Link>}
     </div>
 
-    <div>
-      {role === 'student' && <Link href="/studentcourse">Your Courses</Link>}
+    <div className='mx-auto'>
+      {role === 'student' && 
+      <Link 
+        className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+        href="/studentcourse">
+        Your Courses
+      </Link>}
     </div>
 
-    <div>
-      {role === 'student' && <Link href="/classcart">Your Cart</Link>}
+    <div className='mx-auto'>
+      {role === 'student' && 
+      <Link 
+        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+        href="/classcart">
+        Your Cart
+      </Link>}
     </div>
 
      <div className="ml-auto">
