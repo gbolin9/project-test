@@ -58,38 +58,50 @@ export default function Page() {
   };
 
   return (
-    <main>
-      <h1>Add Course</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <main className= "min-h-screen flex flex-col items-center justify-start py-10">
+      <h1 className='py-4 text-3xl italic justify-center'>Add Course</h1>
+      <div className="py-8 flex flex-col items-center justify-center text-2xl">
+      <form 
+      className= "max-w-md mx-auto p-6 bg-gray-500 shadow-md py-4 border-4 border-yellow-500 rounded-md"
+      onSubmit={handleSubmit}>
+        <div className="flex flex-col space-y-2">
           <label htmlFor="courseID">Course ID</label>
-          <input id="courseID" 
+          <input 
+          className='w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500'
+          id="courseID" 
           type="text" 
           name="courseID" 
           value={course.courseID} 
           onChange={handleChange} 
           required />
         </div>
-        <div>
+        <div className="flex flex-col space-y-2">
           <label htmlFor="courseName">Course Name</label>
-          <input id="courseName" 
+          <input 
+          className='w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500'
+          id="courseName" 
           type="text"
            name="courseName" 
            value={course.courseName} 
            onChange={handleChange} 
            required/>
-        </div><div>
+        </div>
+        <div className="flex flex-col space-y-2">
           <label htmlFor="subjectArea">Subject Area</label>
-          <input id="subjectArea" 
+          <input 
+          className='w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500'
+          id="subjectArea" 
           type="text"
            name="subjectArea" 
            value={course.subjectArea} 
            onChange={handleChange} 
            required/>
         </div>
-        <div>
+        <div className="flex flex-col space-y-2">
           <label htmlFor="credits">Credits</label>
-          <input id="credits" 
+          <input 
+          className='w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500'
+          id="credits" 
           type="number" 
           name="credits"
           min="1"
@@ -97,9 +109,10 @@ export default function Page() {
           value={course.credits} 
           onChange={handleChange} />
         </div>
-        <div>
+        <div className="flex flex-col space-y-2">
           <label htmlFor="teacherID">Teacher ID</label>
           <input
+            className='w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500'
             id="teacherID"
             type="number"
             name="teacherID"
@@ -108,15 +121,22 @@ export default function Page() {
             readOnly 
           />
         </div>
-        <div>
+        <div className="flex flex-col space-y-2">
           <label htmlFor="description">Description</label>
-          <textarea id="description" 
-          name="description" 
-          value={course.description} 
-          onChange={handleChange} />
+          <textarea 
+            className='w-full border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500'
+            id="description" 
+            name="description" 
+            value={course.description} 
+            onChange={handleChange} />
         </div>
-        <button type="submit">Submit</button>
+        <div className="flex justify-center py-4">
+        <button 
+        className='px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-green-500'
+        type="submit">Submit</button>
+        </div>
       </form>
+      </div>
     </main>
   );
 }
