@@ -221,11 +221,16 @@ const handleDropCourse = async () => {
         
       )}
       {role === 'student' && (
-        <div className="button-group">
-          <button type="button" onClick={handleAddCourse}>
+        <div className="button-group mx-auto flex space-x-4 py-4">
+          <button 
+          type="button" 
+          className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-blue-700"
+          onClick={handleAddCourse}>
             Add Course
           </button>
-          <button type="button" onClick={handleDropCourse}>
+          <button 
+          className="px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-red-600"
+          type="button" onClick={handleDropCourse}>
             Drop Course
           </button>
         </div>
