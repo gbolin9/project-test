@@ -62,12 +62,10 @@ export default function CartPage() {
 
     if (cart.length === 0) {
         return (
-            <main className= "min-h-screen flex flex-col items-center justify-start py-10">
-      <h1 className='py-4 text-3xl justify-center italic'>Enrollment Cart</h1>
+            <main>
+                <h1>Your Cart</h1>
                 <p>Your cart is empty.</p>
-                 <button
-                 className='mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-green-600'
-                  onClick={() => router.push('/')}>Search for More Courses</button>
+                 <button onClick={() => router.push('/')}>Search for More Courses</button>
             </main>
         );
     }
@@ -75,14 +73,13 @@ export default function CartPage() {
     const totalCredits = cart.reduce((sum, item) => sum + (Number(item.credits) || 0), 0);
 
     return (
-        <main className= "min-h-screen flex flex-col items-center justify-start py-10">
-      <h1 className='py-4 text-3xl justify-center'>Enrollment Cart</h1>
-            <table className="w-full border-collapse border-4 border-yellow-600 bg-gray-500">
-        <thead className="mx-auto text-left text-xl italic">
+        <main>
+            <h1>Enrollment Cart</h1>
+            <table>
+                <thead>
                     <tr>
                         <th>Course Name</th>
-                        <th>Course ID</th>
-                        <th>Subject Area</th>
+                        <th>ID</th>
                         <th>Credits</th>
                         <th>Action</th>
                     </tr>
@@ -92,12 +89,9 @@ export default function CartPage() {
                         <tr key={course.courseID} >
                             <td>{course.courseName}</td>
                             <td >{course.courseID}</td>
-                            <td >{course.subjectArea}</td>
                             <td>{course.credits}</td>
                             <td>
-                                <button 
-                                className='button-sm px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-700'
-                                onClick={() => removeFromCart(course.courseID)}>Remove</button>
+                                <button onClick={() => removeFromCart(course.courseID)}>Remove</button>
                             </td>
                         </tr>
                     ))}
@@ -105,18 +99,11 @@ export default function CartPage() {
             </table>
 
             <div>
-                <h3 className='text-xl font-bold'>Total Credits: {totalCredits}</h3>
-                <div><button
-                 className='mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-green-600'
-                  onClick={() => router.push('/')}>Search for More Courses</button>
-                    </div>
-                    <div>
-                <button
-                className='mt-4 px-4 py-2 bg-yellow-500 text-white rounded-md hover:bg-green-700'
+                <h3>Total Credits: {totalCredits}</h3>
+                <button 
                     onClick={handleEnrollAll}>
                     Confirm Courses and Enroll
                 </button>
-                </div>
             </div>
         </main>
     );
