@@ -1,5 +1,4 @@
 import Link from 'next/link';
-export const dynamic = 'force-dynamic';
 
 interface Course {
   _id: string;
@@ -11,8 +10,7 @@ interface Course {
 }
 async function getCourse(): Promise<Course[]> {
 
-  const res = await fetch("https://backend-sdev-255-project.onrender.com/api/course",
-                         { cache: 'no-store' } )
+  const res = await fetch("https://backend-sdev-255-project.onrender.com/api/course")
   return res.json();
 }
 
