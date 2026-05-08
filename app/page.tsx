@@ -17,30 +17,33 @@ async function getCourse(): Promise<Course[]> {
 export default async function Home() {
   const data = await getCourse();
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-      <h1>Home</h1>
-      <p>All Courses Provided Below</p>
-      <table>
-        <thead>
-          <tr>
-          <th>courseID</th>
-          <th>teacherID</th>
+    <div className="flex flex-col flex-1 items-center justify-center font-sans">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-40 px-10 lg:items-start">
+      <h1 className="text-3xl font-bold mb-4">All Courses Provided Below</h1>
+      <table className="w-full border-collapse border-4 border-yellow-600 bg-gray-500">
+        <thead className="mx-auto text-left text-xl italic">
+          <tr >
+          <th>Course ID</th>
+          <th>Teacher ID</th>
           <th>Course Name</th>
-          <th>credits</th>
+          <th>Credits</th>
+          <th>Subject Area</th>
           </tr>
           </thead>
           <tbody>
             {data.map((course) =>(
               <tr key={course._id}>
                 <td>
-                 <Link href={`/courseDetails/${course._id}`}>
- {course.courseID}
-</Link>
+                 <Link 
+                 className="px-2 bg-yellow-600 text-white rounded-sm hover:bg-green-500"
+                 href={`/courseDetails/${course._id}`}>
+                  {course.courseID}
+                </Link>
                 </td>
                 <td>{course.teacherID}</td>
                 <td>{course.courseName}</td>
                 <td>{course.credits}</td>
+                <td>{course.courseName}</td> 
 
               </tr>
             ))}
