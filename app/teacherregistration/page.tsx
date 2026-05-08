@@ -40,11 +40,15 @@ export default function TeacherRegistrationPage() {
   };
 
   return (
-    <main>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <main className= "min-h-screen flex flex-col items-center justify-start py-10">
+      <h1 className="text-3xl italic py-2">Teacher Registration</h1>
+      <form 
+      className= "max-w-md mx-auto p-6 bg-gray-500 shadow-md py-4"
+      onSubmit={handleSubmit}>
+        <div className="flex flex-col space-y-2">
           <label htmlFor="firstName">First Name</label>
           <input
+          className='border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500'
             id="firstName"
             type="text"
             name="firstName"
@@ -53,9 +57,10 @@ export default function TeacherRegistrationPage() {
             required
           />
         </div>
-        <div>
+        <div className="flex flex-col space-y-2">
           <label htmlFor="lastName">Last Name</label>
           <input
+          className='border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500'
             id="lastName"
             type="text"
             name="lastName"
@@ -64,9 +69,10 @@ export default function TeacherRegistrationPage() {
             required
           />
         </div>
-        <div>
+        <div className="flex flex-col space-y-2">
           <label htmlFor="email">E-Mail</label>
           <input
+          className='border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500'
             id="email"
             type="email"
             name="email"
@@ -75,9 +81,10 @@ export default function TeacherRegistrationPage() {
             required
           />
         </div>
-        <div>
+        <div className="flex flex-col space-y-2">
           <label htmlFor="loginName">Login Name</label>
           <input
+          className='border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500'
             id="loginName"
             type="text"
             name="loginName"
@@ -86,9 +93,10 @@ export default function TeacherRegistrationPage() {
             required
           />
         </div>
-        <div>
+        <div className="flex flex-col space-y-2">
           <label htmlFor="password">Create a Password</label>
           <input
+          className='border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-4 focus:ring-blue-500'
             id="password"
             type="password"
             name="password"
@@ -97,7 +105,13 @@ export default function TeacherRegistrationPage() {
             required
           />
         </div>
-        <button type="submit">Submit</button>
+        <div className="flex justify-center py-4">
+          <button 
+          type="submit" 
+          className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-green-700">
+            Submit
+          </button>
+        </div>
       </form>
     </main>
   );
