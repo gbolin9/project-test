@@ -26,10 +26,13 @@ async function getData(): Promise<{ courses: Course[]; teachers: Teacher[] }> {
     throw new Error(`Failed to fetch: Courses ${courseRes.status}, Teachers ${teacherRes.status}`);
   }
 
-  return {
-    courses: await courseRes.json(),
-    teachers: await teacherRes.json(),
-  };
+  const [courses, teachers] = await Promise.all([
+  courseRes.json(),
+  teacherRes.json()
+]);
+
+// This "cleans" the data by stripping non-serializable properties
+return JSON.parse(JSON.stringify({ courses, teachers }));
 }
 
 export default async function Home() {
