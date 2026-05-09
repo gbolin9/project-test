@@ -22,7 +22,8 @@ async function getData(): Promise<{ courses: Course[]; teachers: Teacher[] }> {
   ]);
 
   if (!courseRes.ok || !teacherRes.ok) {
-    throw new Error('Failed to fetch data');
+    console.error(`Course Status: ${courseRes.status}, Teacher Status: ${teacherRes.status}`);
+    throw new Error(`Failed to fetch: Courses ${courseRes.status}, Teachers ${teacherRes.status}`);
   }
 
   return {
