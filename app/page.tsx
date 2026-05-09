@@ -10,7 +10,7 @@ interface Course {
 }
 async function getCourse(): Promise<Course[]> {
 
-  const res = await fetch("https://backend-sdev-255-project.onrender.com/api/course")
+  const res = await fetch("https://backend-sdev-255-project.onrender.com/api/course", { cache: 'no-store' })
   return res.json();
 }
 
